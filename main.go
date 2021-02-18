@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -29,6 +30,8 @@ func main() {
 		fmt.Scanf("%s\n", &answer)
 		if answer == p.a {
 			fmt.Printf("Corretc\n")
+		}else{
+			fmt.Printf("Incorrect\nThe anwer as %s\n",p.a)
 		}
 	}
 
@@ -38,7 +41,7 @@ func parseLines(lines [][]string) []problem {
 	for i, line := range lines {
 		ret[i] = problem{
 			q: line[0],
-			a: line[1],
+			a: strings.TrimSpace(line[1]),
 		}
 	}
 	return ret
