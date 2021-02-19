@@ -23,18 +23,20 @@ func main() {
 		exit(fmt.Sprint("No lines on csv"))
 	}
 	problems := parseLines(lines)
-
+	correct := 0
 	for i, p := range problems {
 		fmt.Printf("Problem #%d: %s = \n", i+1, p.q)
 		var answer string
 		fmt.Scanf("%s\n", &answer)
 		if answer == p.a {
 			fmt.Printf("Corretc\n")
+			correct++
 		}else{
-			fmt.Printf("Incorrect\nThe anwer as %s\n",p.a)
+			fmt.Printf("Incorrect\nThe answer as %s\n",p.a)
 		}
-	}
 
+	}
+	fmt.Printf("Your scored %d of out %d\n",correct,len(problems))
 }
 func parseLines(lines [][]string) []problem {
 	ret := make([]problem, len(lines))
